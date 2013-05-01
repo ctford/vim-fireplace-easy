@@ -60,7 +60,7 @@ Paredit performs structured editing of Clojure S-expressions. To enable, edit `v
 
     let g:paredit_mode = 1
 
-The paredit documentation is here: `bundle/paredit-x.x.x/doc/paredit.txt`.
+The paredit documentation is here: `bundle/paredit-0.9.9/doc/paredit.txt`.
 
 # ClojureScript
 
