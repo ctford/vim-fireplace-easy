@@ -1,5 +1,5 @@
 # vim-fireplace-easy - A crackling Clojure fireplace 
-This is a sample configuration for [vim-fireplace](https://github.com/tpope/vim-fireplace) to hopefully make the process of trying out Clojure with Vim straightforward. It is basically a complete Vim configuration with Fireplace for dynamic Clojure evaluation and vim-clojure-static for syntax highlighting etc.
+This is a sample configuration for [vim-fireplace](https://github.com/tpope/vim-fireplace) to hopefully make the process of trying out Clojure with Vim straightforward. It is basically a complete Vim configuration with Fireplace for dynamic Clojure evaluation and [vim-clojure-static](https://github.com/guns/vim-clojure-static) for syntax highlighting etc.
 
 ## Install
 If you have an existing vim configuration, first move it out of the way. You can bring it back in after you feel like Fireplace is working for you.
