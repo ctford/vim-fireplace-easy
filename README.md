@@ -22,10 +22,9 @@ The last command sets up helptags so that you can use `:help fireplace` to bring
 
 ## First Test - Syntax Highlight and Stuff
 
-Now open a Clojure file just to see if the plugin's basically working. Conveniently, there's one in this repo:
+Now open a Clojure file just to see if the plugin is working. Conveniently, there's one in this repo:
 
-    $ cd
-    $ vim .vim/piglatin.clj
+    $ vim ~/.vim/piglatin.clj
 
 If syntax highlighting doesn't work, make sure `.vim` is in your home directory and `~/.vimrc` is a symlink to `~/.vim/vimrc.vim`.
 
@@ -44,14 +43,16 @@ Start up Vim, open a Clojure file and run the `cqc` command. The Vim screen will
 
 ## Third Test - Code
 
-Place the cursor over a Clojure expression and run the `cpp` command. Fireplace will evaluate the expression and display the result.
+Place the cursor inside a Clojure expression and run the `cpp` command. Fireplace will evaluate the expression and display the result.
 
 Place the cursor over a Clojure symbol and run the `K` command. Fireplace will display the documentation for that symbol.
 
+Place the cursor over a Clojure symbol and run the `[d` command. Fireplace will display the source for that symbol.
+
 # What's Next?
 
-* Go read the Fireplace documentation! (You may find it here: `bundle/vim-fireplace/doc/fireplace.txt`).
-* If you've already got Vim configuration, you should be able to basically copy this directory structure over yours. Then move the Pathogen and Fireplace settings from `vimrc.vim` to your `vimrc` file.
+* Go read the Fireplace documentation! You can find it within Vim with `:help fireplace` or in `~/.vim/bundle/vim-fireplace/doc/fireplace.txt`.
+* If you've already got Vim configuration, you should be able to copy this directory structure over yours. Then move the Pathogen and Fireplace settings from `vimrc.vim` to your `vimrc` file.
 * Enable paredit.
 
 # Paredit
@@ -60,7 +61,7 @@ Paredit performs structured editing of Clojure S-expressions. To enable, edit `v
 
     let g:paredit_mode = 1
 
-The paredit documentation is here: `bundle/paredit-0.9.9/doc/paredit.txt`.
+The paredit documentation is here: `~/.vim/bundle/paredit-0.9.9/doc/paredit.txt`.
 
 # ClojureScript
 
