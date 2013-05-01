@@ -14,6 +14,9 @@ Now clone this repo into ~/.vim and set it up:
     $ cd
     $ git clone git@github.com:ctford/vim-fireplace-easy.git .vim
     $ ln -s .vim/vimrc.vim .vimrc
+    $ vim -c "helptags ~/.vim/bundle/vim-fireplace/doc" -c "q"
+
+The last command sets up helptags so that you can use `:help fireplace` to bring up Fireplace's documentation within Vim.
 
 *Windows users see Windows Notes section below*
 
@@ -23,8 +26,6 @@ Now open a Clojure file just to see if the plugin's basically working. Convenien
 
     $ cd
     $ vim .vim/piglatin.clj
-
-You should see the syntax highlighted source code as well as an error window telling you that VimClojure couldn't find the nailgun server. That's our next step.
 
 If syntax highlighting doesn't work, make sure `.vim` is in your home directory and `~/.vimrc` is a symlink to `~/.vim/vimrc.vim`.
 
