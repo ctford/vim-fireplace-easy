@@ -1,4 +1,4 @@
-# vim-fireplace - Easy Peasy Lemon Squeezy
+# vim-fireplace-easy - A crackling Clojure fireplace 
 This is a sample configuration for [vim-fireplace](https://github.com/tpope/vim-fireplace) to hopefully make the process of trying out Clojure with Vim straightforward. It is basically a complete Vim configuration with Fireplace for dynamic Clojure evaluation and vim-clojure-static for syntax highlighting etc.
 
 ## Install
