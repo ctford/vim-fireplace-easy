@@ -1,19 +1,22 @@
 # vim-fireplace-easy - A crackling Clojure fireplace 
 This is a sample configuration for [vim-fireplace](https://github.com/tpope/vim-fireplace) to hopefully make the process of trying out Clojure with Vim straightforward. It is basically a complete Vim configuration with Fireplace for dynamic Clojure evaluation and [vim-clojure-static](https://github.com/guns/vim-clojure-static) for syntax highlighting etc.
 
+## A quick note about Vim
+Vim is an excellent and highly configurable text editor. You can extend Vim's capabilities using plugins - like Fireplace.
+
+Vim reads configuration from two places: `~/.vim`, which holds plugins, and `~/.vimrc`, which stores your personal settings. This repository provides a version of both suitable for getting started with Clojure, though you may wish to add more settings and plugins.
+
 ## Install
-If you have an existing vim configuration, first move it out of the way. You can bring it back in after you feel like Fireplace is working for you.
+If you have an existing Vim configuration, first move it out of the way. You can bring it back in after you feel like Fireplace is working for you.
 
-    $ cd
-    $ mv .vim .vim.bak
-    $ mv .vimrc .vimrc.bak
-    $ mv .gvimrc .gvimrc
+    $ mv ~/.vim ~/.vim.bak
+    $ mv ~/.vimrc ~/.vimrc.bak
+    $ mv ~/.gvimrc ~/.gvimrc
 
-Now clone this repo into ~/.vim and set it up:
+Now clone this repo into `~/.vim` and set it up:
 
-    $ cd
-    $ git clone git@github.com:ctford/vim-fireplace-easy.git .vim
-    $ ln -s .vim/vimrc.vim .vimrc
+    $ git clone git@github.com:ctford/vim-fireplace-easy.git ~/.vim
+    $ ln -s ~/.vim/vimrc.vim ~/.vimrc
     $ vim -c "helptags ~/.vim/bundle/vim-fireplace/doc" -c "q"
 
 The last command sets up helptags so that you can use `:help fireplace` to bring up Fireplace's documentation within Vim.
