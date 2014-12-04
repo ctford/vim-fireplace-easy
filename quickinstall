@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+set -o nounset
+set -o errexit
+#set -o xtrace
+
+function print_help {
+echo ""
+echo "Installs vim plugins and config for fireplace, paredit and vim-clojure-static"
+echo "    -f    Replace existing config and plugins (old files will be backed up to ~/oldvim"
+echo "    -h    Print this message and exit"
+echo ""
+}
+
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+do_over=
+old_plugins=
+old_config=
+
+OPTIND=1
+while getopts "hf" opt; do
+    case "$opt" in
+        h)
+            print_help
+            exit 0
+            ;;
+        f)
+            do_over=true
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+
+if [ -a ~/.vim ]; then
+    old_plugins=true
+fi
+
+if [ -a ~/.vimrc ]; then
+    old_config=true
+fi
+
+if [  -n "${old_config}"  -o  -n "${old_plugins}" ]; then
+    if [ -z "${do_over}" ]; then
+        echo ""
+        echo "It looks like you have an existing ~/.vim folder or ~/.vimrc file."
+        echo "If you really want to replace them then rerun using with the -f"
+        echo "option."
+        echo ""
+        exit 1
+    fi
+    
+    mkdir -p ~/oldvim
+
+    if [ -n "${old_config}" ]; then
+	rm ~/oldvim/.vimrc
+        mv ~/.vimrc ~/oldvim/ && echo "NOTICE: Your old vim config has been moved to ~/oldvim"
+    fi
+
+    if [ -n "${old_plugins}" ]; then
+	rm -r ~/oldvim/.vim
+        cp -RHf ~/.vim ~/oldvim/ && rm -r ~/.vim && echo "NOTICE: Your old vim plugins have been moved to ~/oldvim"
+    fi
+fi
+
+ln -s ${__dir} ~/.vim
+ln -s ~/.vim/vimrc.vim ~/.vimrc
+vim -c "helptags ~/.vim/bundle/vim-fireplace/doc" -c "q"
+vim ${__dir}/README.md -c "26 :norm zt"
+
