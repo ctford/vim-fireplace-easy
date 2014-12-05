@@ -14,6 +14,9 @@ echo ""
 }
 
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+now=`date`
+backup_path="${HOME}/oldvim/${now}/"
+backup_path=${backup_path//[: ]/} #remove space and : characters from date
 do_over=
 old_plugins=
 old_config=
@@ -33,7 +36,6 @@ done
 
 shift $((OPTIND-1))
 
-
 if [ -a ~/.vim ]; then
     old_plugins=true
 fi
@@ -52,16 +54,14 @@ if [  -n "${old_config}"  -o  -n "${old_plugins}" ]; then
         exit 1
     fi
     
-    mkdir -p ~/oldvim
+    mkdir -p ${backup_path}
 
     if [ -n "${old_config}" ]; then
-	rm ~/oldvim/.vimrc
-        mv ~/.vimrc ~/oldvim/ && echo "NOTICE: Your old vim config has been moved to ~/oldvim"
+        mv ~/.vimrc "${backup_path}" && echo "NOTICE: Your old vim config has been moved to ${backup_path}"
     fi
 
     if [ -n "${old_plugins}" ]; then
-	rm -r ~/oldvim/.vim
-        cp -RHf ~/.vim ~/oldvim/ && rm -r ~/.vim && echo "NOTICE: Your old vim plugins have been moved to ~/oldvim"
+        cp -RHf ~/.vim "${backup_path}"  && rm -r ~/.vim && echo "NOTICE: Your old vim plugins have been moved to ${backup_path}"
     fi
 fi
 
