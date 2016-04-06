@@ -11,7 +11,7 @@ If you have an existing Vim configuration, first move it out of the way. You can
 
     $ mv ~/.vim ~/.vim.bak
     $ mv ~/.vimrc ~/.vimrc.bak
-    $ mv ~/.gvimrc ~/.gvimrc
+    $ mv ~/.gvimrc ~/.gvimrc.bak
 
 Now clone this repo into `~/.vim` and set it up:
 
